@@ -1,0 +1,62 @@
+import React from 'react'
+import { assets } from '../assets/assets'
+import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+// import { AppContext } from '../context/AppContsxt'
+import { AppContext } from '../context/AppContsxt'
+
+const Navbar = () => {
+    // const [user, setUser] = useState(true)
+    const { user, setShowLogin, logout, credit } = useContext(AppContext)
+    const navigate = useNavigate();
+    return (
+        <div className='flex items-center justify-between'>
+            <Link to='/' >
+                <div className="container flex flex-row items-center h-6 p-1.5 mt-5  px-3 sm:px-6 lg:px-10">
+                    <img
+                        src={assets.logo1}
+                        alt="Logo 1"
+                        className="w-10 sm:w-10 lg:w-16 "
+                    />
+                    <img
+                        src={assets.logo_Generative}
+                        alt="Generative Logo"
+                        className="w-28 sm:w-36 lg:w-56"
+                    />
+
+                </div>
+
+
+
+                {/* <img src={assets.logo} alt="" className='w-28 sm:w-32 lg:w-28  ' /> */}
+            </Link>
+            <div className='pt-2'>
+                {user ?
+                    <div className='flex items-center md:gap-2 sm:gap-3'>
+                        <button onClick={() => navigate('/buy')} className='flex items-center gap-3 mx-1 bg-blue-100 px-2 sm:px-6 py-3 rounded-full hover:scale-105 transition-all duration-700'>
+                            <img onClick={() => navigate('/buy')} className='w-5 ' src={assets.credit_star} alt="" />
+                            <p className='text-xs sm=text-sm  font-medium'>Credits left : {credit}</p>
+                        </button>
+                        <p className='text-gray-600 max-sm:hidden pl-4'> Hi, {user.name}</p>
+                        <div className='relative group'>
+                            <img src={assets.profile_icon} className='w-10 drop-shadow' alt="" />
+                            <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12'>
+                                <ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
+                                    <li onClick={logout} className='py-1 px-2 cursor-pointer pr-10' >Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> :
+                    <div className='flex items-center gap-2 sm:gap-5 lg:gap-10'>
+                        <p onClick={() => navigate('/buy')} className='cursor pointer ' >Pricing</p>
+                        <button onClick={() => setShowLogin(true)} className='bg-zinc-800 text-white px-7 py-2 sm:px-10 text-sm rounded-full'>Login</button>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    )
+}
+
+export default Navbar
