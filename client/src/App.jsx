@@ -10,7 +10,7 @@ import Result from './pages/Result'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Login from './components/Login'
-import { AppContext } from './context/AppContsxt'
+import { AppContext } from './context/AppContext'
 
 
 const App = () => {
@@ -21,8 +21,8 @@ const App = () => {
 
 
     <div className='px-4 sm:px-10 md:px-14 lg:px-28 min-h-screen 	bg-gradient-to-b from-orange-400 to-red-500'>
-    
-    
+
+
       <ToastContainer position='bottom-right' />
       <Navbar />
       {showLogin && <Login />}

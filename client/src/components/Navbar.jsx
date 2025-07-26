@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 // import { AppContext } from '../context/AppContsxt'
-import { AppContext } from '../context/AppContsxt'
+import { AppContext } from '../context/AppContext'
 
 const Navbar = () => {
     // const [user, setUser] = useState(true)

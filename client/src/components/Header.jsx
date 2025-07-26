@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 import { motion } from "motion/react"
 import { delay } from 'motion'
 import { duration } from '@mui/material'
-import { AppContext } from '../context/AppContsxt'
+import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
 
 

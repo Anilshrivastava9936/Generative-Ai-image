@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { motion } from "motion/react"
-import { AppContext } from '../context/AppContsxt'
+import { AppContext } from '../context/AppContext'
 // import { useNavigate } from 'react-router-dom'
 
 const Result = () => {
@@ -16,7 +16,7 @@ const Result = () => {
     e.preventDefault()
     // if (!showLogin) {
     //   navigate('/login')
-    
+
     // }
 
     setLoading(true)

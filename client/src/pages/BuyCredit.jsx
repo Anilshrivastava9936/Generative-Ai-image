@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { plans } from '../assets/assets'
 import { assets } from '../assets/assets'
-import { AppContext } from '../context/AppContsxt'
+import { AppContext } from '../context/AppContext'
 import { motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -22,15 +22,15 @@ const BuyCredit = () => {
       receipt: order.receipt,
       handler: async (response) => {
         try {
-          const {data}=await axios.post(backendUrl + '/api/user/verify-razor',response,{headers:{token}})
-          if(data.success){
+          const { data } = await axios.post(backendUrl + '/api/user/verify-razor', response, { headers: { token } })
+          if (data.success) {
             loadCreditsData()
             navigate('/')
             toast.success('credit added')
           }
         } catch (error) {
           toast.error(error.message)
-          
+
         }
       }
     }
@@ -49,7 +49,7 @@ const BuyCredit = () => {
 
       if (data.success) {
         initPay(data.order)
-       
+
       }
     } catch (error) {
       console.log(error.message)
